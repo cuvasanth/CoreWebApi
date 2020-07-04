@@ -12,13 +12,18 @@ namespace NewWebApi.Controllers
     [ApiController]
     public class CommandsController : ControllerBase
     {
-        private readonly MockNewApiRepository _repository = new MockNewApiRepository();
+        private readonly INewApiRepository _repository;
+
+        public CommandsController(INewApiRepository repository)
+        {
+            _repository = repository;
+        }
 
         //GET api/Commands
         [HttpGet]
         public ActionResult<IEnumerable<Command>> GetAllCommands()
         {
-            var objcommand = _repository.GetAppCommands();
+            var objcommand = _repository.GetAllCommands();
             return Ok(objcommand);
         }
 

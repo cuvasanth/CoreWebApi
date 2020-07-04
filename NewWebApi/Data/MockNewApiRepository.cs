@@ -8,7 +8,7 @@ namespace NewWebApi.Data
 {
     public class MockNewApiRepository : INewApiRepository
     {
-        public IEnumerable<Command> GetAppCommands()
+        public IEnumerable<Command> GetAllCommands()
         {
             var commands = new List<Command>()
             {

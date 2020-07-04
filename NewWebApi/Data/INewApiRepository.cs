@@ -8,7 +8,7 @@ namespace NewWebApi.Data
 {
     public interface INewApiRepository
     {
-        IEnumerable<Command> GetAppCommands();
+        IEnumerable<Command> GetAllCommands();
         Command GetCommandById(int Id);
     }
 }
