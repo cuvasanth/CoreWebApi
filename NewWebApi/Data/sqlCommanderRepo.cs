@@ -19,6 +19,25 @@ namespace NewWebApi.Data
         {
             _context = context;
         }
+
+        public void CreateCommand(Command cmd)
+        {
+            if (cmd == null)
+            {
+                throw new ArgumentNullException(nameof(cmd));
+            }
+            _context.Commands.Add(cmd);
+        }
+
+        public void DeleteCommand(Command cmd)
+        {
+            if(cmd == null)
+            {
+                throw new ArgumentNullException(nameof(cmd));
+            }
+            _context.Commands.Remove(cmd);
+        }
+
         public IEnumerable<Command> GetAllCommands()
         {
             return _context.Commands.ToList();
@@ -28,6 +47,16 @@ namespace NewWebApi.Data
         {
             return _context.Commands.FirstOrDefault(x => x.Id == Id);
 
+        }
+
+        public bool SaveChanges()
+        {
+            return (_context.SaveChanges() >= 0);
+        }
+
+        public void UpdateCommand(Command cmd)
+        {
+            //Ntings
         }
     }
 }

@@ -8,6 +8,16 @@ namespace NewWebApi.Data
 {
     public class MockNewApiRepository : INewApiRepository
     {
+        public void CreateCommand(Command cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteCommand(Command cmd)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Command> GetAllCommands()
         {
             var commands = new List<Command>()
@@ -24,6 +34,16 @@ namespace NewWebApi.Data
         public Command GetCommandById(int Id)
         {
             return new Command { Id = 0, HowTo = "Dummy", Line = "Dummy Line", Platform = "ummy Platfor" };
+        }
+
+        public bool SaveChanges()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateCommand(Command cmd)
+        {
+            throw new NotImplementedException();
         }
     }
 }
